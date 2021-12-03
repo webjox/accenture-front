@@ -21,13 +21,13 @@ import {
 import { ShiftCreate, ShiftEdit } from "./pages/shift";
 import { VagonCreate, VagonEdit } from "./pages/vagon";
 import { MaterialCreate, MaterialEdit } from "./pages/material";
+import { Dashboard } from "./pages/dashboard";
 
 const dataProvider = jsonServerProvider(
   "http://185.22.234.115:7777/accenture-webjox.ru/api"
 );
 
 const i18nProvider = polyglotI18nProvider(() => russianMessages, "ru");
-
 const App = () => (
   <Admin dataProvider={dataProvider} i18nProvider={i18nProvider}>
     <Resource
@@ -38,40 +38,51 @@ const App = () => (
       edit={WarehouseEdit}
     />
     <Resource
+      options={{ label: "Сырье" }}
       name="material"
       list={MaterialList}
       create={MaterialCreate}
       edit={MaterialEdit}
     />
     <Resource
+      options={{ label: "Пункты приема" }}
       name="reception-point"
       list={ReceptionPointList}
       create={ReceptionPointCreate}
       edit={ReceptionPointEdit}
     />
     <Resource
+      options={{ label: "Заказы" }}
       name="order"
       list={OrderList}
       create={OrderCreate}
       edit={OrderEdit}
     />
     <Resource
+      options={{ label: "Вагоны" }}
       name="vagon"
       list={VagonList}
       create={VagonCreate}
       edit={VagonEdit}
     />
     <Resource
+      options={{ label: "Смены" }}
       name="shift"
       list={ShiftList}
       create={ShiftCreate}
       edit={ShiftEdit}
     />
     <Resource
+      options={{ label: "Работники" }}
       name="workers"
       list={WorkerList}
       create={WorkerCreate}
       edit={WorkerEdit}
+    />
+    <Resource
+      options={{ label: "Дашборд" }}
+      name="order-analytics"
+      list={Dashboard}
     />
   </Admin>
 );

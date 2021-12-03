@@ -5,6 +5,9 @@ import {
   TextField,
   ReferenceManyField,
   DateField,
+  SelectField,
+  NumberField,
+  ImageField,
   EditButton,
 } from "react-admin";
 
@@ -12,15 +15,10 @@ export const MaterialList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
-      <TextField source="title" />
-      <TextField source="defect_frequency" />
-      <ReferenceManyField label="Датасет" reference="comments" target="post_id">
-        <Datagrid>
-          <TextField source="body" />
-          <DateField source="created_at" />
-          <EditButton />
-        </Datagrid>
-      </ReferenceManyField>
+      <TextField label="Название" source="title" />
+      <NumberField label="Дельта" source="delta" />
+      <TextField label="Частота брака" source="defect_frequency" />
+      <ImageField source="dataset" label="Датасет" />
     </Datagrid>
   </List>
 );

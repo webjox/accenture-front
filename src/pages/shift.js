@@ -14,8 +14,6 @@ import RichTextInput from "ra-input-rich-text";
 export const ShiftCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <DateInput source="fullness" validate={required()} />
-      <DateInput source="volume" validate={required()} />
       <SelectInput
         source="id_technologist"
         choices={[
@@ -37,6 +35,9 @@ export const ShiftCreate = (props) => (
           { id: "2", name: "2" },
         ]}
       />
+      <DateInput label="Дата начала" source="date_start" />
+      <DateInput label="Дата окончания" source="date_end" />
+      <TextInput label="Заказы" source="orders" />
     </SimpleForm>
   </Create>
 );
@@ -44,8 +45,7 @@ export const ShiftCreate = (props) => (
 export const ShiftEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
-      <DateInput source="fullness" validate={required()} />
-      <DateInput source="volume" validate={required()} />
+      <TextInput source="id" />
       <SelectInput
         source="id_technologist"
         choices={[
@@ -67,6 +67,9 @@ export const ShiftEdit = (props) => (
           { id: "2", name: "2" },
         ]}
       />
+      <DateInput label="Дата начала" source="date_start" />
+      <DateInput label="Дата окончания" source="date_end" />
+      <TextInput label="Заказы" source="orders" />
     </SimpleForm>
   </Edit>
 );

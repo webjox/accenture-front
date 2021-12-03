@@ -1,44 +1,56 @@
 import * as React from "react";
-import { List, Datagrid, TextField, SelectField } from "react-admin";
+import {
+  List,
+  NumberField,
+  TextField,
+  Datagrid,
+  SelectField,
+} from "react-admin";
 
 export const VagonList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
+      <TextField label="Техник" source="id_technician" />
+      <TextField label="Технолог" source="id_technologist" />
+      <TextField label="Номер авто" source="auto_number" />
+      <NumberField label="Вес" source="weight" />
+      <TextField label="Статус" source="" />
       <SelectField
-        source="id_technician"
+        label="Пункт приема"
+        source="status"
         choices={[
-          { id: "M", name: "Male" },
-          { id: "F", name: "Female" },
+          { id: "0", name: "Ожидает" },
+          { id: "1", name: "На проверке" },
+          { id: "2", name: "Разгружено" },
+          { id: "3", name: "Брак" },
         ]}
       />
-      <SelectField
-        source="id_technologist"
-        choices={[
-          { id: "M", name: "Male" },
-          { id: "F", name: "Female" },
-        ]}
+      <NumberField label="Фиксированные данные" source="fixation" />
+      <NumberField
+        label="Заявленный процент брака (дельта)"
+        source="declared_rejection_rate"
       />
-      <TextField source="auto_number" />
-      <TextField source="weight" />
-      <TextField source="status" />
-      <TextField source="fixation" />
-      <TextField source="declared_rejection_rate" />
-      <TextField source="actual_scrap_rate" />
-      <TextField source="defect" />
-      <TextField source="pure_material" />
+      <NumberField
+        label="Фактический процент брака"
+        source="actual_scrap_rate"
+      />
+      <TextField label="Брак в тоннах" source="defect" />
+      <TextField label="Чистое сырьё без брака" source="pure_material" />
       <SelectField
+        label="Поставщик"
         source="id_provider"
         choices={[
-          { id: "M", name: "Male" },
-          { id: "F", name: "Female" },
+          { id: "1", name: "1" },
+          { id: "2", name: "2" },
         ]}
       />
       <SelectField
+        label="Пункт приема"
         source="id_reception_point"
         choices={[
-          { id: "M", name: "Male" },
-          { id: "F", name: "Female" },
+          { id: "1", name: "1" },
+          { id: "2", name: "2" },
         ]}
       />
     </Datagrid>

@@ -5,10 +5,11 @@ export const WorkerList = (props) => (
   <List {...props}>
     <Datagrid rowClick="edit">
       <TextField source="id" />
-      <TextField source="name" />
-      <TextField source="status" />
-      <TextField source="type" />
+      <TextField label="ФИО" source="name" />
+      <TextField label="Статус" source="status" />
+      <TextField label="Тип" source="type" />
       <SelectField
+        label="Пункты приема"
         source="reception_point"
         choices={[
           { id: "M", name: "Male" },

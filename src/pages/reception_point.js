@@ -4,38 +4,34 @@ import {
   Edit,
   SimpleForm,
   TextInput,
-  DateInput,
-  ReferenceManyField,
   RadioButtonGroupInput,
-  Datagrid,
-  TextField,
-  DateField,
-  EditButton,
   SelectInput,
-  required,
+  ReferenceInput,
 } from "react-admin";
-import RichTextInput from "ra-input-rich-text";
 
 export const ReceptionPointCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
       <TextInput source="title" />
       <SelectInput
-        source="id_technologist"
+        source="id_technician"
+        label="Техник"
         choices={[
-          { id: "1", name: "1" },
-          { id: "2", name: "2" },
+          { id: 1, name: "1" },
+          { id: 1, name: "2" },
         ]}
       />
       <SelectInput
-        source="id_technician"
+        source="id_technologist"
+        label="Технолог"
         choices={[
-          { id: "1", name: "1" },
-          { id: "2", name: "2" },
+          { id: 1, name: "1" },
+          { id: 1, name: "2" },
         ]}
       />
       <SelectInput
         source="id_order"
+        label="Заказ"
         choices={[
           { id: "1", name: "1" },
           { id: "2", name: "2" },
@@ -43,6 +39,7 @@ export const ReceptionPointCreate = (props) => (
       />
       <RadioButtonGroupInput
         source="status"
+        label="Статус"
         choices={[
           { id: "0", name: "Свободен" },
           { id: "1", name: "Разгружает" },
@@ -50,15 +47,14 @@ export const ReceptionPointCreate = (props) => (
           { id: "3", name: "Выключен" },
         ]}
       />
-      <TextInput source="stream_url" />
-      <TextInput source="id_order" />
-      <SelectInput
-        source="id_order"
-        choices={[
-          { id: "1", name: "1" },
-          { id: "2", name: "2" },
-        ]}
-      />
+      <TextInput label="Ссылка на трансляцию" source="stream_url" />
+      <ReferenceInput
+        label="Очередь вагонов"
+        source="reception-point"
+        reference="reception-point"
+      >
+        <SelectInput optionText="queue_vagons" />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );
@@ -66,22 +62,26 @@ export const ReceptionPointCreate = (props) => (
 export const ReceptionPointEdit = (props) => (
   <Edit {...props}>
     <SimpleForm>
+      <TextInput source="title" />
       <SelectInput
-        source="id_technologist"
+        source="id_technician"
+        label="Техник"
         choices={[
-          { id: "1", name: "1" },
-          { id: "2", name: "2" },
+          { id: 1, name: "1" },
+          { id: 1, name: "2" },
         ]}
       />
       <SelectInput
-        source="id_technician"
+        source="id_technologist"
+        label="Технолог"
         choices={[
-          { id: "1", name: "1" },
-          { id: "2", name: "2" },
+          { id: 1, name: "1" },
+          { id: 1, name: "2" },
         ]}
       />
       <SelectInput
         source="id_order"
+        label="Заказ"
         choices={[
           { id: "1", name: "1" },
           { id: "2", name: "2" },
@@ -89,6 +89,7 @@ export const ReceptionPointEdit = (props) => (
       />
       <RadioButtonGroupInput
         source="status"
+        label="Статус"
         choices={[
           { id: "0", name: "Свободен" },
           { id: "1", name: "Разгружает" },
@@ -96,15 +97,14 @@ export const ReceptionPointEdit = (props) => (
           { id: "3", name: "Выключен" },
         ]}
       />
-      <TextInput source="stream_url" />
-      <TextInput source="id_order" />
-      <SelectInput
-        source="id_order"
-        choices={[
-          { id: "1", name: "1" },
-          { id: "2", name: "2" },
-        ]}
-      />
+      <TextInput label="Ссылка на трансляцию" source="stream_url" />
+      <ReferenceInput
+        label="Очередь вагонов"
+        source="reception-point"
+        reference="reception-point"
+      >
+        <SelectInput optionText="queue_vagons" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );

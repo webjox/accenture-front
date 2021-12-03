@@ -14,8 +14,12 @@ import {
 export const WarehouseCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <NumberInput source="fullness" validate={(required(), maxValue(100))} />
-      <NumberInput source="volume" validate={required()} />
+      <NumberInput
+        label="Наполненность, %"
+        source="fullness"
+        validate={(required(), maxValue(100))}
+      />
+      <NumberInput label="Общий объем" source="volume" validate={required()} />
       <ReferenceInput
         label="Пункты приема"
         source="reception-point"

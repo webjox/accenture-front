@@ -16,6 +16,7 @@ export const VagonCreate = (props) => (
       <TextInput source="id" />
       <SelectInput
         source="id_technician"
+        label="Техник"
         choices={[
           { id: "1", name: "1" },
           { id: "2", name: "2" },
@@ -23,14 +24,16 @@ export const VagonCreate = (props) => (
       />
       <SelectInput
         source="id_technologist"
+        label="Технолог"
         choices={[
           { id: "1", name: "1" },
           { id: "2", name: "2" },
         ]}
       />
-      <TextInput source="auto_number" />
-      <NumberInput source="weight" />
+      <TextInput label="Номер авто" source="auto_number" />
+      <NumberInput label="Вес" source="weight" />
       <RadioButtonGroupInput
+        label="Статус"
         source="status"
         choices={[
           { id: "0", name: "Ожидает" },
@@ -39,12 +42,19 @@ export const VagonCreate = (props) => (
           { id: "3", name: "Брак" },
         ]}
       />
-      <NumberInput source="fixation" />
-      <NumberInput source="declared_rejection_rate" />
-      <NumberInput source="actual_scrap_rate" />
-      <TextInput source="defect" />
-      <TextInput source="pure_material" />
+      <NumberInput label="Фиксированные данные" source="fixation" />
+      <NumberInput
+        label="Заявленный процент брака (дельта)"
+        source="declared_rejection_rate"
+      />
+      <NumberInput
+        label="Фактический процент брака"
+        source="actual_scrap_rate"
+      />
+      <TextInput label="Брак в тоннах" source="defect" />
+      <TextInput label="Чистое сырьё без брака" source="pure_material" />
       <SelectInput
+        label="Поставщик"
         source="id_provider"
         choices={[
           { id: "1", name: "1" },
@@ -52,6 +62,7 @@ export const VagonCreate = (props) => (
         ]}
       />
       <SelectInput
+        label="Пункт приема"
         source="id_reception_point"
         choices={[
           { id: "1", name: "1" },
@@ -68,6 +79,7 @@ export const VagonEdit = (props) => (
       <TextInput source="id" />
       <SelectInput
         source="id_technician"
+        label="Техник"
         choices={[
           { id: "1", name: "1" },
           { id: "2", name: "2" },
@@ -75,14 +87,16 @@ export const VagonEdit = (props) => (
       />
       <SelectInput
         source="id_technologist"
+        label="Технолог"
         choices={[
           { id: "1", name: "1" },
           { id: "2", name: "2" },
         ]}
       />
-      <TextInput source="auto_number" />
-      <NumberInput source="weight" />
+      <TextInput label="Номер авто" source="auto_number" />
+      <NumberInput label="Вес" source="weight" />
       <RadioButtonGroupInput
+        label="Статус"
         source="status"
         choices={[
           { id: "0", name: "Ожидает" },
@@ -91,12 +105,19 @@ export const VagonEdit = (props) => (
           { id: "3", name: "Брак" },
         ]}
       />
-      <NumberInput source="fixation" />
-      <NumberInput source="declared_rejection_rate" />
-      <NumberInput source="actual_scrap_rate" />
-      <TextInput source="defect" />
-      <TextInput source="pure_material" />
+      <NumberInput label="Фиксированные данные" source="fixation" />
+      <NumberInput
+        label="Заявленный процент брака (дельта)"
+        source="declared_rejection_rate"
+      />
+      <NumberInput
+        label="Фактический процент брака"
+        source="actual_scrap_rate"
+      />
+      <TextInput label="Брак в тоннах" source="defect" />
+      <TextInput label="Чистое сырьё без брака" source="pure_material" />
       <SelectInput
+        label="Поставщик"
         source="id_provider"
         choices={[
           { id: "1", name: "1" },
@@ -104,6 +125,7 @@ export const VagonEdit = (props) => (
         ]}
       />
       <SelectInput
+        label="Пункт приема"
         source="id_reception_point"
         choices={[
           { id: "1", name: "1" },
